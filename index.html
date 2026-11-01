@@ -1,0 +1,2231 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>משפחת מיארה</title>
+<style>:root {
+  --cream: #faf7f0;
+  --card: #ffffff;
+  --ink: #2c2a26;
+  --muted: #85806f;
+  --hairline: #e6dfd0;
+  --connector: #cfd6cc;
+
+  --sage: #7d9884;
+  --sage-deep: #4f6b59;
+  --sage-wash: #eef2ec;
+  --gold: #c2a05b;
+  --gold-soft: #e7d5a8;
+  --gold-wash: #fdf8ec;
+
+  --male: #6b8ba8;
+  --female: #b07d96;
+  --danger: #a4483a;
+
+  --shadow-s: 0 1px 2px rgba(58, 48, 30, .05), 0 2px 8px rgba(58, 48, 30, .04);
+  --shadow-m: 0 2px 4px rgba(58, 48, 30, .06), 0 8px 24px rgba(58, 48, 30, .07);
+  --shadow-gold: 0 2px 6px rgba(194, 160, 91, .18), 0 10px 28px rgba(194, 160, 91, .16);
+
+  --radius: 16px;
+  --radius-s: 11px;
+  --indent: 30px;
+
+  --font-display: "New Peninim MT", Raanana, "Arial Hebrew", Georgia, serif;
+  --font-body: system-ui, -apple-system, "SF Hebrew", "Segoe UI", "Arial Hebrew", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(1100px 520px at 88% -8%, #fffdf7 0%, rgba(255, 253, 247, 0) 62%),
+    radial-gradient(900px 460px at 4% 4%, var(--sage-wash) 0%, rgba(238, 242, 236, 0) 58%),
+    var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.shell { max-width: 1120px; margin: 0 auto; padding: 46px 24px 96px; }
+
+/* ---------- hero ---------- */
+
+.hero { text-align: center; margin-bottom: 52px; }
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 600;
+  letter-spacing: .01em;
+  color: var(--sage-deep);
+}
+
+.flourish {
+  display: block;
+  width: 132px;
+  height: 9px;
+  margin: 16px auto 14px;
+  background:
+    linear-gradient(90deg, transparent, var(--gold-soft) 18%, var(--gold) 50%, var(--gold-soft) 82%, transparent) center 4px / 100% 1px no-repeat,
+    radial-gradient(circle, var(--gold) 2.6px, transparent 2.9px) center / 9px 9px no-repeat;
+}
+
+.hero-meta { margin: 0; color: var(--muted); font-size: 14px; letter-spacing: .02em; }
+
+/* ---------- section heads ---------- */
+
+.section-head { text-align: center; margin-bottom: 22px; }
+
+.section-head h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(21px, 3.4vw, 27px);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.section-head .ico { font-size: .92em; }
+
+.section-sub {
+  margin: 5px 0 0;
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: .09em;
+}
+
+/* ---------- celebrating this month: a pinned side board ---------- */
+
+.layout { display: grid; gap: 34px; align-items: start; }
+
+.board {
+  position: relative;
+  padding: 22px 20px 26px;
+  background:
+    linear-gradient(180deg, #fffdf8, var(--cream) 70%),
+    var(--cream);
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  box-shadow: var(--shadow-m);
+}
+
+/* the inner frame that makes it read as a board rather than a card */
+.board::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.board .section-head { position: relative; margin-bottom: 18px; }
+
+.board .section-head h2 { font-size: 20px; }
+
+.board .section-sub { font-size: 13px; }
+
+.celebrants {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.celebrant {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-s);
+  transition: transform .22s ease, box-shadow .22s ease;
+  animation: rise .42s both ease-out;
+}
+
+/* the pin holding each note to the board */
+.celebrant::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 32%, #e3cd94, var(--gold) 70%);
+  box-shadow: 0 1px 3px rgba(120, 96, 40, .38);
+}
+
+.celebrant:nth-child(odd) { transform: rotate(-.35deg); }
+.celebrant:nth-child(even) { transform: rotate(.4deg); }
+.celebrant:hover { transform: rotate(0deg) translateY(-2px); box-shadow: var(--shadow-m); }
+
+.celebrant:nth-child(2) { animation-delay: .05s; }
+.celebrant:nth-child(3) { animation-delay: .1s; }
+.celebrant:nth-child(4) { animation-delay: .15s; }
+.celebrant:nth-child(n+5) { animation-delay: .2s; }
+
+.celebrant-body { display: flex; flex-direction: column; min-width: 0; }
+
+.celebrant .day {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--sage-wash);
+  color: var(--sage-deep);
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.celebrant-name { font-size: 16px; font-weight: 600; }
+.celebrant-age { color: var(--muted); font-size: 13px; }
+.celebrant .greg-date { color: var(--muted); font-size: 12px; text-align: start; }
+
+.celebrant.is-today {
+  background: linear-gradient(160deg, var(--gold-wash), var(--card) 64%);
+  border-color: var(--gold-soft);
+  box-shadow: var(--shadow-gold);
+}
+
+.celebrant.is-today .day {
+  background: linear-gradient(150deg, var(--gold), #d9bd7c);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(194, 160, 91, .4);
+}
+
+.ribbon {
+  position: absolute;
+  top: -9px;
+  inset-inline-end: 12px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+
+.board .empty {
+  position: relative;
+  margin: 0;
+  padding: 20px 6px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- remembered this month: a quieter board, a candle for each ---------- */
+
+.side { display: flex; flex-direction: column; gap: 24px; }
+
+.board.memorial {
+  background:
+    linear-gradient(180deg, #fbfaf7, #f3f1ec 70%),
+    #f3f1ec;
+}
+
+.board.memorial::before { border-color: var(--hairline); }
+
+.remembered {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-s);
+  animation: rise .42s both ease-out;
+}
+
+.remembered.is-today {
+  border-color: var(--gold-soft);
+  box-shadow: var(--shadow-gold);
+}
+
+.remembered-date { color: var(--muted); font-size: 13px; }
+.remembered .greg-date { color: var(--muted); font-size: 12px; text-align: start; }
+
+.candle {
+  flex: 0 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 44px;
+  height: 46px;
+}
+
+.candle .wax {
+  width: 14px;
+  height: 24px;
+  border-radius: 3px 3px 2px 2px;
+  background: linear-gradient(90deg, #efe7d6, #fffdf8 45%, #e6dcc6);
+  box-shadow: 0 1px 2px rgba(58, 48, 30, .15);
+}
+
+/* the wick */
+.candle .wax::before {
+  content: "";
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  width: 1.5px;
+  height: 4px;
+  margin-left: -.75px;
+  background: #5a4a35;
+}
+
+.candle .flame {
+  position: absolute;
+  bottom: 27px;
+  left: 50%;
+  width: 10px;
+  height: 16px;
+  margin-left: -5px;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: radial-gradient(ellipse at 50% 72%, #fff8d6 0 22%, #ffd36b 48%, #f29a3a 78%, rgba(242, 154, 58, 0) 100%);
+  box-shadow: 0 0 10px 3px rgba(255, 196, 92, .45);
+  transform-origin: 50% 90%;
+  animation: flicker 2.6s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scale(1) rotate(-1deg); opacity: 1; }
+  30% { transform: scale(.94, 1.04) rotate(1.5deg); opacity: .92; }
+  60% { transform: scale(1.03, .96) rotate(-.5deg); opacity: 1; }
+}
+
+@media (min-width: 900px) {
+  .layout { grid-template-columns: minmax(0, 1fr) 304px; }
+  .side { grid-column: 2; position: sticky; top: 26px; }
+  .tree-section { grid-column: 1; grid-row: 1; }
+}
+
+/* ---------- toolbar ---------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 30px;
+}
+
+.search-wrap { position: relative; flex: 0 1 320px; }
+
+input[type=search] {
+  width: 100%;
+  padding: 11px 18px;
+  padding-inline-start: 82px;              /* keeps long names clear of the match count */
+  font: inherit;
+  font-size: 15px;
+  color: inherit;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  box-shadow: var(--shadow-s);
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input[type=search]:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 4px var(--sage-wash);
+}
+
+.count {
+  position: absolute;
+  inset-inline-start: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.toolbar-actions { display: flex; gap: 8px; }
+
+button.ctl {
+  padding: 10px 18px;
+  min-height: 42px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--sage-deep);
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  box-shadow: var(--shadow-s);
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, color .18s ease;
+}
+
+button.ctl:hover { border-color: var(--sage); transform: translateY(-1px); }
+
+label.opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 6px;
+  color: var(--muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+label.opt input { width: 17px; height: 17px; accent-color: var(--sage); }
+
+:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
+
+/* ---------- the tree ---------- */
+
+ul.tree, ul.children { list-style: none; margin: 0; padding: 0; }
+
+ul.tree { display: flex; flex-direction: column; align-items: flex-start; }
+
+ul.children { padding-inline-start: var(--indent); }
+
+li.node { position: relative; }
+
+/* connector lines: a vertical trunk, plus an elbow into each card */
+ul.children > li.node::before,
+ul.children > li.node::after {
+  content: "";
+  position: absolute;
+  border-radius: 2px;
+  background: var(--connector);
+}
+
+ul.children > li.node::before {
+  inset-inline-start: calc(var(--indent) / -2);
+  top: 0;
+  width: 2px;
+  height: 100%;
+}
+
+ul.children > li.node:last-child::before { height: 38px; }
+
+ul.children > li.node::after {
+  inset-inline-start: calc(var(--indent) / -2);
+  top: 38px;
+  width: calc(var(--indent) / 2);
+  height: 2px;
+}
+
+li.node[data-open="0"] > ul.children { display: none; }
+li.node[data-open="1"] > ul.children { animation: unfold .26s ease-out; }
+li.node.hidden { display: none; }
+
+.row { display: flex; align-items: flex-start; gap: 9px; margin: 7px 0; }
+
+.toggle {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-top: 24px;
+  padding: 0;
+  color: var(--sage-deep);
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  box-shadow: var(--shadow-s);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color .18s ease, background .18s ease;
+}
+
+.toggle:hover { border-color: var(--sage); background: var(--sage-wash); }
+.toggle .chev { display: block; transition: transform .24s ease; }
+li.node[data-open="1"] > .row > .toggle .chev { transform: rotate(-90deg); }
+
+.toggle.leaf {
+  width: 7px;
+  height: 7px;
+  margin: 36px 11px 0;
+  background: var(--gold-soft);
+  border: 0;
+  box-shadow: none;
+  cursor: default;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-s);
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.row:hover > .card { transform: translateY(-2px); box-shadow: var(--shadow-m); }
+
+.person {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 186px;
+  padding: 15px 19px;
+  padding-inline-end: 38px;
+}
+
+.person + .person { border-inline-start: 1px solid var(--hairline); }
+
+.person::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 3px;
+}
+
+.person.m::before { background: var(--male); }
+.person.f::before { background: var(--female); }
+
+.name { font-size: 16px; font-weight: 600; letter-spacing: .005em; }
+
+svg.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.rings { display: inline-block; vertical-align: -4px; }
+.rings svg { display: block; width: 24px; height: 19px; }
+
+.hebrew-date {
+  margin-top: 2px;
+  color: var(--sage-deep);
+  font-family: var(--font-display);
+  font-size: 15px;
+}
+
+.hebrew-date.unknown { color: #b6b0a1; font-family: var(--font-body); font-size: 13px; }
+
+.greg-date {
+  display: none;
+  color: var(--muted);
+  font-size: 12px;
+  direction: ltr;
+  text-align: end;
+}
+
+body.show-greg .greg-date { display: block; }
+
+.badge {
+  align-self: center;
+  margin: 0 6px;
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: var(--sage-wash);
+  color: var(--sage-deep);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+li.node.match > .row > .card {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-wash), var(--shadow-m);
+}
+
+/* ---------- add / edit controls ---------- */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  border-inline-start: 1px solid var(--hairline);
+  background: #fcfaf5;
+}
+
+.actions button {
+  padding: 7px 12px;
+  min-height: 34px;
+  color: var(--muted);
+  background: transparent;
+  border: 1px dashed var(--hairline);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .18s ease, border-color .18s ease;
+}
+
+.actions button:hover { color: var(--sage-deep); border-style: solid; border-color: var(--sage); }
+
+.person > button.edit {
+  position: absolute;
+  inset-inline-end: 7px;
+  top: 11px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1;
+  opacity: .4;
+  cursor: pointer;
+  transition: opacity .18s ease, background .18s ease, color .18s ease;
+}
+
+.person > button.edit:hover { opacity: 1; color: var(--sage-deep); background: var(--sage-wash); }
+
+/* ---------- dialog ---------- */
+
+dialog {
+  padding: 0;
+  min-width: 330px;
+  max-width: calc(100vw - 32px);
+  color: inherit;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(58, 48, 30, .22);
+}
+
+dialog::backdrop { background: rgba(44, 42, 38, .34); }
+dialog[open] { animation: rise .24s ease-out; }
+
+dialog form { display: grid; gap: 14px; padding: 26px 26px 22px; }
+
+dialog h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--sage-deep);
+}
+
+dialog .who { margin-top: -8px; color: var(--gold); font-size: 13px; letter-spacing: .04em; }
+dialog .field { display: grid; gap: 5px; }
+dialog .field > span { color: var(--muted); font-size: 13px; }
+
+dialog input[type=text],
+dialog input[type=date],
+dialog select {
+  padding: 11px 14px;
+  font: inherit;
+  font-size: 15px;
+  color: inherit;
+  background: var(--cream);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-s);
+}
+
+dialog input:focus, dialog select:focus {
+  outline: none;
+  border-color: var(--sage);
+  box-shadow: 0 0 0 3px var(--sage-wash);
+}
+
+dialog form:not(:has(input[name=deceased]:checked)) .death-fields { display: none; }
+dialog .death-fields { display: grid; gap: 14px; }
+
+dialog .error { min-height: 19px; color: var(--danger); font-size: 13px; }
+dialog .buttons { display: flex; gap: 10px; margin-top: 2px; }
+
+dialog button[type=submit] {
+  color: #fff;
+  background: var(--sage-deep);
+  border-color: var(--sage-deep);
+}
+
+dialog button[type=submit]:hover { background: var(--sage); border-color: var(--sage); }
+
+/* ---------- motion ---------- */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes unfold {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- phones ---------- */
+
+@media (max-width: 720px) {
+  :root { --indent: 19px; }
+
+  .shell { padding: 30px 15px 72px; }
+  .hero { margin-bottom: 38px; }
+
+
+  .toolbar { gap: 10px; }
+  .search-wrap { flex: 1 1 100%; }
+  .toolbar-actions { flex: 1 1 auto; }
+  button.ctl { flex: 1 1 auto; }
+
+  ul.tree { align-items: stretch; }
+  .row { width: 100%; }
+  .card { flex: 1 1 auto; min-width: 0; flex-direction: column; }
+  .person { min-width: 0; width: 100%; padding: 13px 16px; padding-inline-end: 38px; }
+  .person + .person { border-inline-start: 0; border-top: 1px solid var(--hairline); }
+
+  .actions {
+    width: 100%;
+    padding: 9px 14px;
+    border-inline-start: 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .badge { align-self: flex-start; margin: 9px 14px 0; }
+  .toggle { width: 34px; height: 34px; margin-top: 18px; }
+  .toggle.leaf { margin: 30px 14px 0; }
+  ul.children > li.node::after,
+  ul.children > li.node:last-child::before { top: 32px; }
+  .person > button.edit { width: 32px; height: 32px; }
+}
+</style>
+</head>
+<body>
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="ring-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0dcab"/>
+      <stop offset=".5" stop-color="#c2a05b"/>
+      <stop offset="1" stop-color="#a5843c"/>
+    </linearGradient>
+    <symbol id="ring-pair" viewBox="0 0 24 19">
+      <g fill="none" stroke="url(#ring-gold)" stroke-width="1.7">
+        <circle cx="9" cy="11" r="5.2"/>
+        <circle cx="15" cy="11" r="5.2"/>
+        <path d="M 10.78 6.11 A 5.2 5.2 0 0 1 12.98 7.66"/>
+      </g>
+      <path d="M 5.5 8.6 A 5.2 5.2 0 0 1 7.9 6.2" fill="none" stroke="#fbf3dd"
+            stroke-width=".7" stroke-linecap="round"/>
+      <path d="M 9 1.7 L 11.3 4.2 L 9 6.5 L 6.7 4.2 Z" fill="#fbfdff"
+            stroke="#b8934a" stroke-width=".75"/>
+      <path d="M 6.7 4.2 L 11.3 4.2" stroke="#b8934a" stroke-width=".5"/>
+    </symbol>
+  </defs>
+</svg>
+<div class="shell">
+  <header class="hero">
+    <h1>משפחת מיארה</h1>
+    <span class="flourish" aria-hidden="true"></span>
+    <p class="hero-meta">135 בני משפחה · 4 דורות · עודכן כ״א בחשוון תשפ״ז · 01.11.2026</p>
+  </header>
+  <div class="layout">
+<div class="side">
+<aside class="board">
+  <div class="section-head">
+    <h2><span class="ico" aria-hidden="true">🎂</span> חוגגים החודש</h2>
+    <p class="section-sub">חשוון תשפ״ז</p>
+  </div>
+  <div class="celebrants">
+    <article class="celebrant">
+      <span class="day">י״ז</span>
+      <div class="celebrant-body">
+        <span class="celebrant-name">אוריאל זגורי</span>
+        <span class="celebrant-age">בן 20</span>
+        <span class="greg-date">28.10.2026</span>
+      </div>
+    </article>
+    <article class="celebrant">
+      <span class="day">י״ז</span>
+      <div class="celebrant-body">
+        <span class="celebrant-name">אליה זגורי</span>
+        <span class="celebrant-age">בן 27</span>
+        <span class="greg-date">28.10.2026</span>
+      </div>
+    </article>
+    <article class="celebrant">
+      <span class="day">י״ח</span>
+      <div class="celebrant-body">
+        <span class="celebrant-name">שרה מיארה</span>
+        <span class="celebrant-age">בת 36</span>
+        <span class="greg-date">29.10.2026</span>
+      </div>
+    </article>
+  </div>
+</aside>
+</div>
+    <section class="tree-section">
+      <div class="toolbar">
+        <div class="search-wrap"><input type="search" id="search" placeholder="חיפוש שם…" autocomplete="off"><span class="count" id="count"></span></div>
+      <div class="toolbar-actions"><button class="ctl" id="expand">פתח הכל</button><button class="ctl" id="collapse">סגור הכל</button></div>
+      <label class="opt"><input type="checkbox" id="greg"><span>הצג תאריך לועזי</span></label>
+      </div>
+<ul class="tree">
+  <li class="node" data-open="0" data-key="papi-mami" data-names="ג׳ון קלוד מיארה אליאן מיארה">
+    <div class="row">
+      <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+      <div class="card">
+        <div class="person m">
+          <div class="name">ג׳ון קלוד מיארה</div>
+          <div class="hebrew-date unknown">תאריך לא ידוע</div>
+        </div>
+        <div class="person f">
+          <div class="name">אליאן מיארה</div>
+          <div class="hebrew-date">כ״ב בתמוז תש״ו</div>
+          <div class="greg-date">21.07.1946</div>
+        </div>
+      </div>
+    </div>
+    <ul class="children">
+      <li class="node" data-open="0" data-key="מיכאל-מיארה-רחל-מיארה" data-names="מיכאל מיארה רחל מיארה">
+        <div class="row">
+          <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+          <div class="card">
+            <div class="person m">
+              <div class="name">מיכאל מיארה</div>
+              <div class="hebrew-date">כ״ד באייר תשכ״ז</div>
+              <div class="greg-date">03.06.1967</div>
+            </div>
+            <div class="person f">
+              <div class="name">רחל מיארה <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+              <div class="hebrew-date">י״ח באלול תש״ל</div>
+              <div class="greg-date">19.09.1970</div>
+            </div>
+          </div>
+        </div>
+        <ul class="children">
+          <li class="node" data-open="0" data-key="אשר-מיארה-שרה-מיארה" data-names="אשר מיארה שרה מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אשר מיארה</div>
+                  <div class="hebrew-date">ט״ו בטבת תשנ״ב</div>
+                  <div class="greg-date">22.12.1991</div>
+                </div>
+                <div class="person f">
+                  <div class="name">שרה מיארה <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">י״ח בחשוון תשנ״א</div>
+                  <div class="greg-date">05.11.1990</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="מרים-בנבנישתי" data-names="מרים בנבנישתי">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person f">
+                  <div class="name">מרים בנבנישתי</div>
+                  <div class="hebrew-date">ג׳ בתמוז תשנ״ג</div>
+                  <div class="greg-date">22.06.1993</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="תקוה-בנבנישתי" data-names="תקוה בנבנישתי">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">תקוה בנבנישתי</div>
+                      <div class="hebrew-date">י״ט בשבט תשע״ד</div>
+                      <div class="greg-date">20.01.2014</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="אברהם-אורי-בנבנישתי" data-names="אברהם אורי בנבנישתי">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">אברהם אורי בנבנישתי</div>
+                      <div class="hebrew-date">ט׳ בניסן תשע״ה</div>
+                      <div class="greg-date">29.03.2015</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="אדל-רחל-בנבנישתי" data-names="אדל רחל בנבנישתי">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">אדל רחל בנבנישתי</div>
+                      <div class="hebrew-date">ח׳ באדר ב׳ תשע״ו</div>
+                      <div class="greg-date">17.03.2016</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="הודיה-בנבנישתי" data-names="הודיה בנבנישתי">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">הודיה בנבנישתי</div>
+                      <div class="hebrew-date">ט״ו בטבת תש״פ</div>
+                      <div class="greg-date">12.01.2020</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="מיכאל-בנבנישתי" data-names="מיכאל בנבנישתי">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">מיכאל בנבנישתי</div>
+                      <div class="hebrew-date">כ״ד בשבט תשפ״א</div>
+                      <div class="greg-date">06.02.2021</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="שילת-בנבנישתי" data-names="שילת בנבנישתי">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">שילת בנבנישתי</div>
+                      <div class="hebrew-date">ט״ו בתשרי תשפ״ג</div>
+                      <div class="greg-date">10.10.2022</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="יהודה-בנבנישתי" data-names="יהודה בנבנישתי">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">יהודה בנבנישתי</div>
+                      <div class="hebrew-date">א׳ בטבת תשפ״ד</div>
+                      <div class="greg-date">13.12.2023</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="נריה-סויסה-אביגיל-סויסה" data-names="נריה סויסה אביגיל סויסה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">נריה סויסה <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">כ״ז בתשרי תשנ״ו</div>
+                  <div class="greg-date">21.10.1995</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אביגיל סויסה</div>
+                  <div class="hebrew-date">א׳ בשבט תשנ״ה</div>
+                  <div class="greg-date">01.01.1995</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="רות-אנקאוה" data-names="רות אנקאוה">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person f">
+                  <div class="name">רות אנקאוה</div>
+                  <div class="hebrew-date">כ״ז באב תשנ״ו</div>
+                  <div class="greg-date">12.08.1996</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="נתנאל-אנקאוה" data-names="נתנאל אנקאוה">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">נתנאל אנקאוה</div>
+                      <div class="hebrew-date">כ׳ בניסן תשע״ט</div>
+                      <div class="greg-date">25.04.2019</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="יוסף-גד-אנקאוה" data-names="יוסף גד אנקאוה">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">יוסף גד אנקאוה</div>
+                      <div class="hebrew-date">כ״א בכסלו תשפ״א</div>
+                      <div class="greg-date">07.12.2020</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="משה-מיארה-הדסה-מיארה" data-names="משה מיארה הדסה מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">משה מיארה</div>
+                  <div class="hebrew-date">ט״ז בטבת תשנ״ח</div>
+                  <div class="greg-date">14.01.1998</div>
+                </div>
+                <div class="person f">
+                  <div class="name">הדסה מיארה <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">י״א בכסלו תשס״א</div>
+                  <div class="greg-date">07.12.2000</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="תמר-מיארה" data-names="תמר מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person f">
+                  <div class="name">תמר מיארה</div>
+                  <div class="hebrew-date">ד׳ בשבט תש״ס</div>
+                  <div class="greg-date">11.01.2000</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אליה-זגורי-אלישבע-זגורי" data-names="אליה זגורי אלישבע זגורי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אליה זגורי <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">י״ז בחשוון תש״ס</div>
+                  <div class="greg-date">27.10.1999</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אלישבע זגורי</div>
+                  <div class="hebrew-date">י״ב בתמוז תשס״א</div>
+                  <div class="greg-date">03.07.2001</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="בן-ציון-מיארה-זהבית-אבישג-מיארה" data-names="בן-ציון מיארה זהבית אבישג מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">בן-ציון מיארה</div>
+                  <div class="hebrew-date">ל׳ באדר א׳ תשס״ג</div>
+                  <div class="greg-date">04.03.2003</div>
+                </div>
+                <div class="person f">
+                  <div class="name">זהבית אבישג מיארה <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">כ״ו בשבט תשס״ג</div>
+                  <div class="greg-date">29.01.2003</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="שמואל-מיארה" data-names="שמואל מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">שמואל מיארה</div>
+                  <div class="hebrew-date">ד׳ באלול תשס״ד</div>
+                  <div class="greg-date">21.08.2004</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="יוסף-שם-טוב-שולמית-מויאל" data-names="יוסף שם טוב שולמית שם טוב">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">יוסף שם טוב <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">ז׳ בטבת תשס״ו</div>
+                  <div class="greg-date">06.01.2006</div>
+                </div>
+                <div class="person f">
+                  <div class="name">שולמית שם טוב</div>
+                  <div class="hebrew-date">י״א בתשרי תשס״ז</div>
+                  <div class="greg-date">03.10.2006</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="node" data-open="0" data-key="משה-בן-זכרי-יהודית-בן-זכרי" data-names="משה בן זכרי יהודית בן זכרי">
+        <div class="row">
+          <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+          <div class="card">
+            <div class="person m">
+              <div class="name">משה בן זכרי <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+              <div class="hebrew-date unknown">תאריך לא ידוע</div>
+            </div>
+            <div class="person f">
+              <div class="name">יהודית בן זכרי</div>
+              <div class="hebrew-date">ה׳ בתמוז תשכ״ח</div>
+              <div class="greg-date">01.07.1968</div>
+            </div>
+          </div>
+        </div>
+        <ul class="children">
+          <li class="node" data-open="0" data-key="איציק-בן-זכרי-אפרת-בן-זכרי" data-names="איציק בן זכרי אפרת בן זכרי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">איציק בן זכרי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אפרת בן זכרי <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="ברוך-גינדי-הובי-גינדי" data-names="ברוך גינדי הובי גינדי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">ברוך גינדי <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">הובי גינדי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="יהונתן-בן-נתן-אליאנא-בן-נתן" data-names="יהונתן בן-נתן אליאנא בן-נתן">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">יהונתן בן-נתן <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אליאנא בן-נתן</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אשר-בן-זכרי-טובה-בן-זכרי" data-names="אשר בן זכרי טובה בן זכרי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אשר בן זכרי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">טובה בן זכרי <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="איתמר-בן-זכרי-אפרת-בן-זכרי-2" data-names="איתמר בן זכרי אפרת בן זכרי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">איתמר בן זכרי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אפרת בן זכרי <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="ינון-בן-זכרי" data-names="ינון בן זכרי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">ינון בן זכרי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אליה-בן-זכרי-שרה-בן-זכרי" data-names="אליה בן זכרי שרה בן זכרי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אליה בן זכרי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">שרה בן זכרי <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אביעד-בן-זכרי-חיה-בן-זכרי" data-names="אביעד בן זכרי חיה בן זכרי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אביעד בן זכרי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">חיה בן זכרי <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="node" data-open="0" data-key="אריה-לוי-רחל-לוי" data-names="אריה לוי רחל לוי">
+        <div class="row">
+          <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+          <div class="card">
+            <div class="person m">
+              <div class="name">אריה לוי <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+              <div class="hebrew-date">כ״ג בטבת תשכ״ו</div>
+              <div class="greg-date">15.01.1966</div>
+            </div>
+            <div class="person f">
+              <div class="name">רחל לוי</div>
+              <div class="hebrew-date">כ״ה בתשרי תש״ל</div>
+              <div class="greg-date">07.10.1969</div>
+            </div>
+          </div>
+        </div>
+        <ul class="children">
+          <li class="node" data-open="0" data-key="רחמים-נתן-אסתר-נתן" data-names="רחמים נתן אסתר נתן">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">רחמים נתן <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">ח׳ בתשרי תש״נ</div>
+                  <div class="greg-date">07.10.1989</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אסתר נתן</div>
+                  <div class="hebrew-date">ח׳ בכסלו תשמ״ח</div>
+                  <div class="greg-date">29.11.1987</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="משה-בכר-בת-חן-בכר" data-names="משה בכר בת-חן בכר">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">משה בכר <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">ט״ו בתמוז תשנ״ה</div>
+                  <div class="greg-date">13.07.1995</div>
+                </div>
+                <div class="person f">
+                  <div class="name">בת-חן בכר</div>
+                  <div class="hebrew-date">כ׳ בניסן תשנ״ז</div>
+                  <div class="greg-date">27.04.1997</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="ליטל" data-names="ליטל בכר">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">ליטל בכר</div>
+                      <div class="hebrew-date">א׳ בטבת תשע״ט</div>
+                      <div class="greg-date">09.12.2018</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="הילה-בכר" data-names="הילה בכר">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">הילה בכר</div>
+                      <div class="hebrew-date">ט׳ באב תש״פ</div>
+                      <div class="greg-date">30.07.2020</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="יעל-בכר" data-names="יעל בכר">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">יעל בכר</div>
+                      <div class="hebrew-date">י׳ בטבת תשפ״ג</div>
+                      <div class="greg-date">02.01.2023</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="יהונתן-בכר" data-names="יהונתן בכר">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">יהונתן בכר</div>
+                      <div class="hebrew-date">כ״ג בתמוז תשפ״ד</div>
+                      <div class="greg-date">29.07.2024</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="נתן-יפה-צופיה-יפה" data-names="נתן יפה צופיה יפה">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">נתן יפה <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">כ״ח באלול תש״ס</div>
+                  <div class="greg-date">28.09.2000</div>
+                </div>
+                <div class="person f">
+                  <div class="name">צופיה יפה</div>
+                  <div class="hebrew-date">כ״ח בטבת תשס״ד</div>
+                  <div class="greg-date">22.01.2004</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="ארי-יפה" data-names="ארי יפה">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">ארי יפה</div>
+                      <div class="hebrew-date">י״א בכסלו תשפ״ה</div>
+                      <div class="greg-date">12.12.2024</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="בתיה-יפה" data-names="בתיה יפה">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">בתיה יפה</div>
+                      <div class="hebrew-date">כ״ז בכסלו תשפ״ו</div>
+                      <div class="greg-date">17.12.2025</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="יקיר-איצר-נועה-איצר" data-names="יקיר איצ׳ר נועה איצ׳ר">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">יקיר איצ׳ר <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">כ״ט באדר א׳ תשס״ה</div>
+                  <div class="greg-date">10.03.2005</div>
+                </div>
+                <div class="person f">
+                  <div class="name">נועה איצ׳ר</div>
+                  <div class="hebrew-date">ד׳ בתמוז תשס״ה</div>
+                  <div class="greg-date">11.07.2005</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אברהם-חזיז-טליה-לוי" data-names="אברהם חזיז טליה חזיז">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אברהם חזיז <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">כ״א בטבת תשס״ה</div>
+                  <div class="greg-date">02.01.2005</div>
+                </div>
+                <div class="person f">
+                  <div class="name">טליה חזיז</div>
+                  <div class="hebrew-date">א׳ בטבת תשס״ז</div>
+                  <div class="greg-date">21.12.2006</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="לביא" data-names="לביא חזיז">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">לביא חזיז</div>
+                      <div class="hebrew-date">ה׳ באלול תשפ״ו</div>
+                      <div class="greg-date">18.08.2026</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="מרדכי" data-names="מרדכי לוי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">מרדכי לוי</div>
+                  <div class="hebrew-date">ט״ז בשבט תש״ע</div>
+                  <div class="greg-date">31.01.2010</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אליהו" data-names="אליהו לוי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אליהו לוי</div>
+                  <div class="hebrew-date">ט״ז בשבט תש״ע</div>
+                  <div class="greg-date">31.01.2010</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="ישראל-חניה-אילה-ברכה-חניה" data-names="ישראל חניה אילה ברכה חניה">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">ישראל חניה <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אילה ברכה חניה</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="מוריה-חניה" data-names="מוריה חניה">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">מוריה חניה</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="דוד-חניה" data-names="דוד חניה">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">דוד חניה</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="אריאל-חניה" data-names="אריאל חניה">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">אריאל חניה</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="משה-מנחם-לוי-דבורה-לוי" data-names="משה מנחם לוי דבורה לוי">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">משה מנחם לוי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">דבורה לוי <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="מרדכי-אריה-לוי" data-names="מרדכי אריה לוי">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">מרדכי אריה לוי</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="אלעזר-שרביט-בתיה-שרביט" data-names="אלעזר שרביט בתיה שרביט">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אלעזר שרביט <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">בתיה שרביט</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="משה-שורקי-שלהבת-שורקי" data-names="משה שורקי שלהבת שורקי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">משה שורקי <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">שלהבת שורקי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="יוסף-חיים-נורני-מיכל-נורני" data-names="יוסף חיים נורני מיכל נורני">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">יוסף חיים נורני <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">מיכל נורני</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אלחנן-לוי-יסכה-לוי" data-names="אלחנן לוי יסכה לוי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אלחנן לוי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">יסכה לוי <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אברהם-לוי-אביטל-לוי" data-names="אברהם לוי אביטל לוי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אברהם לוי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אביטל לוי <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="עמיחי-לוי-אלישבע-לוי" data-names="עמיחי לוי אלישבע לוי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">עמיחי לוי</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אלישבע לוי <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="node" data-open="0" data-key="יחזקאל-מלכא-קרן-מלכא" data-names="יחזקאל מלכא קרן מלכא">
+        <div class="row">
+          <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+          <div class="card">
+            <div class="person m">
+              <div class="name">יחזקאל מלכא <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+              <div class="hebrew-date unknown">תאריך לא ידוע</div>
+            </div>
+            <div class="person f">
+              <div class="name">קרן מלכא</div>
+              <div class="hebrew-date">ח׳ בסיוון תשל״ג</div>
+              <div class="greg-date">08.06.1973</div>
+            </div>
+          </div>
+        </div>
+        <ul class="children">
+          <li class="node" data-open="0" data-key="דניאל-מלכא-מיכל-מלכא" data-names="דניאל מלכא מיכל מלכא">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">דניאל מלכא</div>
+                  <div class="hebrew-date">ח׳ בשבט תשנ״ד</div>
+                  <div class="greg-date">20.01.1994</div>
+                </div>
+                <div class="person f">
+                  <div class="name">מיכל מלכא <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="אריאל-מלכא" data-names="אריאל מלכא">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">אריאל מלכא</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="נועה-מלכא" data-names="נועה מלכא">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">נועה מלכא</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="ליבי-מלכא" data-names="ליבי מלכא">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">ליבי מלכא</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="מיכאל-רווח-אסתי-רווח" data-names="מיכאל רווח אסתי רווח">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">מיכאל רווח <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אסתי רווח</div>
+                  <div class="hebrew-date">ל׳ בסיוון תשנ״ו</div>
+                  <div class="greg-date">17.06.1996</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="אילה" data-names="אילה רווח">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">אילה רווח</div>
+                      <div class="hebrew-date">ו׳ בניסן תש״פ</div>
+                      <div class="greg-date">31.03.2020</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="עילאי-משה" data-names="עילאי משה רווח">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">עילאי משה רווח</div>
+                      <div class="hebrew-date">י״ז באדר תשפ״א</div>
+                      <div class="greg-date">01.03.2021</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="אוריה" data-names="אוריה רווח">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">אוריה רווח</div>
+                      <div class="hebrew-date">ח׳ בכסלו תשפ״ד</div>
+                      <div class="greg-date">21.11.2023</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="בניה-יחזקאל" data-names="בניה יחזקאל רווח">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">בניה יחזקאל רווח</div>
+                      <div class="hebrew-date">י״ז בניסן תשפ״ה</div>
+                      <div class="greg-date">15.04.2025</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="יאיר-מלכא-אפרת-מלכא" data-names="יאיר מלכא אפרת מלכא">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">יאיר מלכא</div>
+                  <div class="hebrew-date">י׳ באדר ב׳ תש״ס</div>
+                  <div class="greg-date">17.03.2000</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אפרת מלכא <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="יסמין-מלכא" data-names="יסמין מלכא">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">יסמין מלכא</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="גד-מלכא" data-names="גד מלכא">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">גד מלכא</div>
+                  <div class="hebrew-date">כ״ח באדר תשס״ז</div>
+                  <div class="greg-date">17.03.2007</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="node" data-open="0" data-key="יצחק-זגורי-יעל-זגורי" data-names="יצחק זגורי יעל זגורי">
+        <div class="row">
+          <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+          <div class="card">
+            <div class="person m">
+              <div class="name">יצחק זגורי <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+              <div class="hebrew-date">י״ז באלול תשכ״ו</div>
+              <div class="greg-date">02.09.1966</div>
+            </div>
+            <div class="person f">
+              <div class="name">יעל זגורי</div>
+              <div class="hebrew-date">ח׳ בסיוון תשל״ג</div>
+              <div class="greg-date">08.06.1973</div>
+            </div>
+          </div>
+        </div>
+        <ul class="children">
+          <li class="node" data-open="0" data-key="ענאל" data-names="ענאל זגורי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person f">
+                  <div class="name">ענאל זגורי</div>
+                  <div class="hebrew-date">כ״ח בסיוון תשנ״ז</div>
+                  <div class="greg-date">03.07.1997</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="יובל-בן-חמו-חיה-בן-חמו" data-names="יובל בן חמו חיה בן חמו">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">יובל בן חמו <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date">כ״ז בסיוון תשנ״ט</div>
+                  <div class="greg-date">11.06.1999</div>
+                </div>
+                <div class="person f">
+                  <div class="name">חיה בן חמו</div>
+                  <div class="hebrew-date">כ״ז באב תש״ס</div>
+                  <div class="greg-date">28.08.2000</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="יונתן" data-names="יונתן זגורי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">יונתן זגורי</div>
+                  <div class="hebrew-date">ו׳ באב תשס״ג</div>
+                  <div class="greg-date">04.08.2003</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אוריאל" data-names="אוריאל זגורי">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אוריאל זגורי</div>
+                  <div class="hebrew-date">י״ז בחשוון תשס״ז</div>
+                  <div class="greg-date">08.11.2006</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="node" data-open="0" data-key="יעקב-זורנו-גלית-זורנו" data-names="יעקב ז׳ורנו גלית ז׳ורנו">
+        <div class="row">
+          <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+          <div class="card">
+            <div class="person m">
+              <div class="name">יעקב ז׳ורנו <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+              <div class="hebrew-date">ה׳ בשבט תשל״ב</div>
+              <div class="greg-date">21.01.1972</div>
+            </div>
+            <div class="person f">
+              <div class="name">גלית ז׳ורנו</div>
+              <div class="hebrew-date">ד׳ בתמוז תשל״ט</div>
+              <div class="greg-date">28.06.1979</div>
+            </div>
+          </div>
+        </div>
+        <ul class="children">
+          <li class="node" data-open="0" data-key="דוד-גורנו-נויה-זורנו" data-names="דוד ז׳ורנו נויה ז׳ורנו">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">דוד ז׳ורנו</div>
+                  <div class="hebrew-date">ג׳ באייר תשנ״ח</div>
+                  <div class="greg-date">29.04.1998</div>
+                </div>
+                <div class="person f">
+                  <div class="name">נויה ז׳ורנו <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="אמרי-זורנו" data-names="אמרי ז׳ורנו">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">אמרי ז׳ורנו</div>
+                      <div class="hebrew-date">כ״ח באב תשפ״ו</div>
+                      <div class="greg-date">11.08.2026</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="ליעם" data-names="ליעם">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">ליעם</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="node" data-open="0" data-key="אליאן" data-names="אליאן">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person f">
+                      <div class="name">אליאן</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="שמואל-הראל-מוריה-הראל" data-names="שמואל הראל מוריה הראל">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">שמואל הראל <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">מוריה הראל</div>
+                  <div class="hebrew-date">ט״ו בסיוון תש״ס</div>
+                  <div class="greg-date">18.06.2000</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="עידן-הראל" data-names="עידן הראל">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">עידן הראל</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="יוסף-ועקנין-אביטל" data-names="יוסף ועקנין אביטל ועקנין">
+            <div class="row">
+              <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">יוסף ועקנין <span class="rings" role="img" title="נישא למשפחה" aria-label="נישא למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+                <div class="person f">
+                  <div class="name">אביטל ועקנין</div>
+                  <div class="hebrew-date">כ״ח באב תשס״ב</div>
+                  <div class="greg-date">06.08.2002</div>
+                </div>
+              </div>
+            </div>
+            <ul class="children">
+              <li class="node" data-open="0" data-key="אליה-ועקנין" data-names="אליה ועקנין">
+                <div class="row">
+                  <span class="toggle leaf" aria-hidden="true"></span>
+                  <div class="card">
+                    <div class="person m">
+                      <div class="name">אליה ועקנין</div>
+                      <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="node" data-open="0" data-key="איתן-זורנו" data-names="איתן ז׳ורנו">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">איתן ז׳ורנו</div>
+                  <div class="hebrew-date">כ״ו בטבת תשס״ז</div>
+                  <div class="greg-date">16.01.2007</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אליאסף-זורנו" data-names="אליאסף ז׳ורנו">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אליאסף ז׳ורנו</div>
+                  <div class="hebrew-date">ט״ז בשבט תש״ע</div>
+                  <div class="greg-date">31.01.2010</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="מאור-זורנו" data-names="מאור ז׳ורנו">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">מאור ז׳ורנו</div>
+                  <div class="hebrew-date">י״ט בתשרי תשע״ד</div>
+                  <div class="greg-date">23.09.2013</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="נועם-זורנו" data-names="נועם ז׳ורנו">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">נועם ז׳ורנו</div>
+                  <div class="hebrew-date">י״ט בניסן תשע״ט</div>
+                  <div class="greg-date">24.04.2019</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="node" data-open="0" data-key="יוסף-חיים-מיארה-רחלי-מיארה" data-names="יוסף חיים מיארה רחלי מיארה">
+        <div class="row">
+          <button class="toggle" aria-expanded="false" aria-label="הצג או הסתר צאצאים"><span class="chev">›</span></button>
+          <div class="card">
+            <div class="person m">
+              <div class="name">יוסף חיים מיארה</div>
+              <div class="hebrew-date">י״ד בתמוז תשמ״ה</div>
+              <div class="greg-date">02.07.1985</div>
+            </div>
+            <div class="person f">
+              <div class="name">רחלי מיארה <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
+              <div class="hebrew-date unknown">תאריך לא ידוע</div>
+            </div>
+          </div>
+        </div>
+        <ul class="children">
+          <li class="node" data-open="0" data-key="אליאב-מיארה" data-names="אליאב מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">אליאב מיארה</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="הדר-מיארה" data-names="הדר מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person f">
+                  <div class="name">הדר מיארה</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="נדב-מיארה" data-names="נדב מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">נדב מיארה</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="שילה-מיארה" data-names="שילה מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person m">
+                  <div class="name">שילה מיארה</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="node" data-open="0" data-key="אביה-מיארה" data-names="אביה מיארה">
+            <div class="row">
+              <span class="toggle leaf" aria-hidden="true"></span>
+              <div class="card">
+                <div class="person f">
+                  <div class="name">אביה מיארה</div>
+                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+    </section>
+  </div>
+</div>
+
+<script type="application/json" id="config">{"flags": {"edit": false, "lineage": true, "birthdays": true, "yahrzeit": true, "search": true, "gregorian": true, "counts": false}, "api": "/api/people"}</script>
+<script>const CONFIG = JSON.parse(document.getElementById('config').textContent);
+const FLAGS = CONFIG.flags;
+
+const tree = document.querySelector('.tree');
+const nodes = [...document.querySelectorAll('li.node')];
+const branches = nodes.filter((n) => n.querySelector(':scope > ul.children'));
+
+function setOpen(node, open) {
+  node.dataset.open = open ? '1' : '0';
+  const btn = node.querySelector(':scope > .row > button.toggle');
+  if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+tree.addEventListener('click', (e) => {
+  const btn = e.target.closest('button.toggle');
+  if (!btn) return;
+  const node = btn.closest('li.node');
+  setOpen(node, node.dataset.open !== '1');
+});
+
+function setAll(open) {
+  branches.forEach((n) => setOpen(n, open));
+}
+document.getElementById('expand').onclick = () => setAll(true);
+document.getElementById('collapse').onclick = () => setAll(false);
+
+const greg = document.getElementById('greg');
+if (greg) greg.onchange = (e) => document.body.classList.toggle('show-greg', e.target.checked);
+
+const search = document.getElementById('search');
+const count = document.getElementById('count');
+if (search) {
+  search.addEventListener('input', (e) => {
+    const q = e.target.value.trim();
+    nodes.forEach((n) => n.classList.remove('hidden', 'match'));
+    if (!q) {
+      count.textContent = '';
+      setAll(false);                            // back to how the page loads
+      return;
+    }
+    const hits = nodes.filter((n) => n.dataset.names.includes(q));
+    hits.forEach((n) => n.classList.add('match'));
+    const keep = new Set();
+    hits.forEach((n) => {
+      for (let a = n; a && a !== tree; a = a.parentElement.closest('li.node')) keep.add(a);
+      n.querySelectorAll('li.node').forEach((d) => keep.add(d));
+    });
+    nodes.forEach((n) => {
+      if (!keep.has(n)) n.classList.add('hidden');
+      else if (!hits.includes(n)) setOpen(n, true);
+    });
+    count.textContent = hits.length ? `${hits.length} התאמות` : 'אין התאמות';
+  });
+}
+
+const TITLES = { child: 'הוספת ילד/ה', spouse: 'הוספת בן/בת זוג', edit: 'עריכת פרטים' };
+
+const dialog = document.getElementById('add-person');
+if (dialog) {
+  const form = dialog.querySelector('form');
+  const error = dialog.querySelector('.error');
+  const title = dialog.querySelector('h2');
+  const who = dialog.querySelector('.who');
+  const submit = form.querySelector('button[type=submit]');
+
+  tree.addEventListener('click', (e) => {
+    const btn = e.target.closest('.actions button, .person button.edit');
+    if (!btn) return;
+    const kind = btn.dataset.kind;
+    form.reset();
+    error.textContent = '';
+    form.elements.kind.value = kind;
+    form.elements.target.value = btn.dataset.target;
+    title.textContent = TITLES[kind];
+    who.textContent = btn.dataset.label;
+    submit.textContent = kind === 'edit' ? 'שמור' : 'הוסף';
+    if (kind === 'edit') {
+      form.elements.name.value = btn.dataset.name;
+      form.elements.gender.value = btn.dataset.gender;
+      form.elements.birth.value = btn.dataset.birth;
+      form.elements.after_sunset.checked = btn.dataset.sunset === '1';
+      form.elements.deceased.checked = btn.dataset.deceased === '1';
+      form.elements.death.value = btn.dataset.death;
+      form.elements.death_after_sunset.checked = btn.dataset.deathSunset === '1';
+    }
+    dialog.showModal();
+    form.elements.name.focus();
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    error.textContent = '';
+    const data = Object.fromEntries(new FormData(form).entries());
+    const payload = {
+      kind: data.kind,
+      target: data.target,
+      name: data.name,
+      gender: data.gender,
+      birth: data.birth || null,
+      after_sunset: form.elements.after_sunset.checked,
+      deceased: form.elements.deceased.checked,
+      death: form.elements.deceased.checked ? (data.death || null) : null,
+      death_after_sunset: form.elements.deceased.checked && form.elements.death_after_sunset.checked,
+    };
+    try {
+      const res = await fetch(CONFIG.api, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Family-Tree': '1' },
+        body: JSON.stringify(payload),
+      });
+      const body = await res.json();
+      if (!res.ok) {
+        error.textContent = body.error || 'הפעולה נכשלה';
+        return;
+      }
+      location.reload();
+    } catch (err) {
+      error.textContent = 'אין חיבור לשרת — ודא ש-serve רץ';
+    }
+  });
+
+  dialog.querySelector('.cancel').onclick = () => dialog.close();
+}
+</script>
+</body>
+</html>
