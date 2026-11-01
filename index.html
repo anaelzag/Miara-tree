@@ -747,6 +747,22 @@ dialog button[type=submit]:hover { background: var(--sage); border-color: var(--
   </div>
   <div class="celebrants">
     <article class="celebrant">
+      <span class="day">ו׳</span>
+      <div class="celebrant-body">
+        <span class="celebrant-name">רחלי מיארה</span>
+        <span class="celebrant-age">בת 40</span>
+        <span class="greg-date">17.10.2026</span>
+      </div>
+    </article>
+    <article class="celebrant">
+      <span class="day">ז׳</span>
+      <div class="celebrant-body">
+        <span class="celebrant-name">אליאב מיארה</span>
+        <span class="celebrant-age">בן 20</span>
+        <span class="greg-date">18.10.2026</span>
+      </div>
+    </article>
+    <article class="celebrant">
       <span class="day">י״ז</span>
       <div class="celebrant-body">
         <span class="celebrant-name">אוריאל זגורי</span>
@@ -1972,17 +1988,18 @@ dialog button[type=submit]:hover { background: var(--sage); border-color: var(--
                 </div>
                 <div class="person f">
                   <div class="name">נויה ז׳ורנו <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
-                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                  <div class="hebrew-date">ט׳ בשבט תשנ״ח</div>
+                  <div class="greg-date">05.02.1998</div>
                 </div>
               </div>
             </div>
             <ul class="children">
-              <li class="node" data-open="0" data-key="אמרי-זורנו" data-names="אמרי ז׳ורנו">
+              <li class="node" data-open="0" data-key="אמרי-זורנו" data-names="אימרי ז׳ורנו">
                 <div class="row">
                   <span class="toggle leaf" aria-hidden="true"></span>
                   <div class="card">
                     <div class="person m">
-                      <div class="name">אמרי ז׳ורנו</div>
+                      <div class="name">אימרי ז׳ורנו</div>
                       <div class="hebrew-date">כ״ח באב תשפ״ו</div>
                       <div class="greg-date">11.08.2026</div>
                     </div>
@@ -2110,7 +2127,8 @@ dialog button[type=submit]:hover { background: var(--sage); border-color: var(--
             </div>
             <div class="person f">
               <div class="name">רחלי מיארה <span class="rings" role="img" title="נישאה למשפחה" aria-label="נישאה למשפחה"><svg viewBox="0 0 24 19" aria-hidden="true" focusable="false"><use href="#ring-pair"/></svg></span></div>
-              <div class="hebrew-date unknown">תאריך לא ידוע</div>
+              <div class="hebrew-date">ו׳ בחשוון תשמ״ז</div>
+              <div class="greg-date">08.11.1986</div>
             </div>
           </div>
         </div>
@@ -2121,7 +2139,8 @@ dialog button[type=submit]:hover { background: var(--sage); border-color: var(--
               <div class="card">
                 <div class="person m">
                   <div class="name">אליאב מיארה</div>
-                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                  <div class="hebrew-date">ז׳ בחשוון תשס״ז</div>
+                  <div class="greg-date">29.10.2006</div>
                 </div>
               </div>
             </div>
@@ -2132,7 +2151,8 @@ dialog button[type=submit]:hover { background: var(--sage); border-color: var(--
               <div class="card">
                 <div class="person f">
                   <div class="name">הדר מיארה</div>
-                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                  <div class="hebrew-date">ט׳ בשבט תשס״ט</div>
+                  <div class="greg-date">03.02.2009</div>
                 </div>
               </div>
             </div>
@@ -2143,7 +2163,8 @@ dialog button[type=submit]:hover { background: var(--sage); border-color: var(--
               <div class="card">
                 <div class="person m">
                   <div class="name">נדב מיארה</div>
-                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                  <div class="hebrew-date">ד׳ באדר תשע״ב</div>
+                  <div class="greg-date">27.02.2012</div>
                 </div>
               </div>
             </div>
@@ -2154,7 +2175,8 @@ dialog button[type=submit]:hover { background: var(--sage); border-color: var(--
               <div class="card">
                 <div class="person m">
                   <div class="name">שילה מיארה</div>
-                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                  <div class="hebrew-date">י״ז בטבת תשע״ו</div>
+                  <div class="greg-date">29.12.2015</div>
                 </div>
               </div>
             </div>
@@ -2165,7 +2187,8 @@ dialog button[type=submit]:hover { background: var(--sage); border-color: var(--
               <div class="card">
                 <div class="person f">
                   <div class="name">אביה מיארה</div>
-                  <div class="hebrew-date unknown">תאריך לא ידוע</div>
+                  <div class="hebrew-date">ה׳ בשבט תשפ״א</div>
+                  <div class="greg-date">18.01.2021</div>
                 </div>
               </div>
             </div>
@@ -2205,6 +2228,29 @@ function setAll(open) {
 }
 document.getElementById('expand').onclick = () => setAll(true);
 document.getElementById('collapse').onclick = () => setAll(false);
+
+const VIEW_KEY = 'familyTreeView';
+
+function memberIds(node) {
+  return [...node.querySelectorAll(':scope > .row button.edit')].map((b) => b.dataset.target);
+}
+
+// Carried across the post-save reload only; a fresh visit still starts collapsed.
+function saveView(alsoOpen) {
+  const open = branches.filter((n) => n.dataset.open === '1').flatMap(memberIds);
+  if (alsoOpen) open.push(alsoOpen);
+  history.replaceState({ [VIEW_KEY]: { open, scrollX, scrollY } }, '');
+}
+
+function restoreView() {
+  const state = history.state && history.state[VIEW_KEY];
+  if (!state) return;
+  history.replaceState(null, '');
+  const open = new Set(state.open);
+  branches.forEach((n) => setOpen(n, memberIds(n).some((id) => open.has(id))));
+  scrollTo(state.scrollX, state.scrollY);
+}
+restoreView();
 
 const greg = document.getElementById('greg');
 if (greg) greg.onchange = (e) => document.body.classList.toggle('show-greg', e.target.checked);
@@ -2295,6 +2341,7 @@ if (dialog) {
         error.textContent = body.error || 'הפעולה נכשלה';
         return;
       }
+      saveView(payload.kind === 'child' ? payload.target : null);
       location.reload();
     } catch (err) {
       error.textContent = 'אין חיבור לשרת — ודא ש-serve רץ';
